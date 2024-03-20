@@ -209,7 +209,7 @@ class PrioritizedSweepingValueIterationAgent(AsynchronousValueIterationAgent):
                         adj_list[nextState].add(state)
                     else:
                         adj_list[nextState] = set([state])
-        print(adj_list)
+
         pq = util.PriorityQueue()
 
         for state in states:
