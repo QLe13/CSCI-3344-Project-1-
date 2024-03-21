@@ -115,8 +115,11 @@ class QLearningAgent(ReinforcementAgent):
           it will be called on your behalf
         """
         "*** YOUR CODE HERE ***"
-        sample = reward + self.discount*self.computeValueFromQValues(nextState)
-        self.qValues[(state, action)] = (1-self.alpha)*self.getQValue(state, action) + self.alpha*sample
+        #sample = reward + self.discount*self.computeValueFromQValues(nextState)
+        #self.qValues[(state, action)] = (1-self.alpha)*self.getQValue(state, action) + self.alpha*sample
+        sample = reward + self.discount * self.computeValueFromQValues(nextState)
+        self.qValues[(state, action)] += self.alpha * (sample - self.qValues[(state, action)])
+
         return
 
     def getPolicy(self, state):
